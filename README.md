@@ -75,13 +75,13 @@ To run the TeleViT experiments:
 bash scripts/televit_experiments.sh
 ```
 
-Running this is enough to reproduce the main results of the study (Figure 2) and re-create the models that were used for the rest of the results.
+Running this is enough to reproduce the main results of the study and re-create all the models.
 
 ## Notes on undocumented capabilities
 
 The code is made to do much more than what was documented in the publication:
 - The model can be conditioned on time, following the methodology that was presented in MetNet-3 and the dataloader can work accordingly. I didn't manage to achieve a comparable performance to training inividually and thus left it out of the publication.
-- Instead of learnable positional encodings for the transformer, one can pre-calculate local/global positional encodings. The idea was that this way, the model could understand where in the Earth each token corresponds and associate it with the global input as well. Similarly, I didn't get a better performance (maybe slightly faster convergence) and therefore it was left out of the publication. 
+- Instead of learnable positional encodings for the transformer, one can pre-calculate local/global positional encodings (e.g. pre-calculated or even [satclip](https://github.com/microsoft/satclip) embeddings). The idea was that this way, the model could understand where in the Earth each token corresponds and associate it with the global input as well. Similarly, I didn't get a better performance (maybe slightly faster convergence) and therefore it was left out of the publication. 
 - The models/dataloader has been adjusted for regression and regression in bins. 
 
 To find all that you have to follow the different experiment configs in [./configs/experiment](./configs/experiment)
