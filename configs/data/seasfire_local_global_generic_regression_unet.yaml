@@ -1,0 +1,27 @@
+_target_: src.data.seasfire_local_global_generic.SeasFireLocalGlobalDataModule
+ds_path: ${ds_path}
+ds_path_global: ${ds_path_global}
+input_vars : ${input_vars}
+positional_vars : ${positional_vars}
+oci_vars : ${oci_vars}
+local_lag: 1
+global_lag: 1
+oci_lag : ${oci_lag}
+log_transform_vars : ${log_transform_vars}
+# Target can be one of BAs_GWIS, BurntArea, frpfire, co2fire, FCCI_BA, co2fire
+target : "log_gwis_ba"
+# How many weeks to forecast forward in time
+target_shift: ${target_shift}
+task : "regression"
+#random_crop: False
+batch_size: 32
+input_local_shape: [10, 1, 80, 80]
+num_workers: 16
+pin_memory: True
+debug: False
+patch_local_shape: ''
+patch_global_shape: ''
+posemb_path: ${posemb_path}
+posemb_global_path: ${posemb_global_path}
+posemb_var_name: ${posemb_var_name}
+posemb_mask: 'lsm'

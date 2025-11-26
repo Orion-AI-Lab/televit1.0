@@ -1,0 +1,75 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=example
+
+defaults:
+  - override /model: seasfire_vit_global_generic
+  - override /data: seasfire_local_global_generic
+  - override /callbacks: default
+  - override /trainer: default
+
+
+model:
+  input_local_shape: [10, 1, 80, 80]
+  input_global_shape: [10, 1, 360, 180]
+  input_oci_shape: [10, 10]
+  patch_local_shape: [10, 1, 16, 16]
+  patch_global_shape: [10, 1, 30, 30]
+  patch_oci_shape: [1, 1]
+  pos_emb: ''
+
+data:
+  local_lag: 1
+  global_lag: 1
+  input_local_shape: ${model.input_local_shape}
+  num_workers: 8
+  pin_memory: True
+  debug: False
+  patch_local_shape: ${model.patch_local_shape}
+  patch_global_shape: ${model.patch_global_shape}
+  posemb_path: ''
+  posemb_global_path: ''
+  posemb_var_name: ''
+  # posemb_path: ${posemb_path}
+  # posemb_global_path: ${posemb_global_path}
+  # posemb_var_name: ${posemb_var_name}
+
+# data:
+  # _target_: src.data.seasfire_local_global_generic.SeasFireLocalGlobalDataModule
+  # ds_path: ${ds_path}
+  # ds_path_global: ${ds_path_global}
+  # input_vars : ${input_vars}
+  # positional_vars : ${positional_vars}
+  # oci_vars : ${oci_vars}
+  # local_lag: 3
+  # global_lag: 3
+  # oci_lag : ${oci_lag}
+  # log_transform_vars : ${log_transform_vars}
+  # # Target can be one of BAs_GWIS, BurntArea, frpfire, co2fire, FCCI_BA, co2fire
+  # target : ${target}
+  # # How many weeks to forecast forward in time
+  # target_shift: ${target_shift}
+  # #random_crop: False
+  # batch_size: 32
+  # local_input_shape: [80, 80]
+  # num_workers: 16
+  # pin_memory: True
+  # debug: True
+    
+# _target_: src.models.seasfire_vit_global_generic.plUNET
+# input_local_shape: [10, 3, 80, 80]
+# input_global_shape: [10, 3, 360, 180]
+# input_oci_shape: [10, 10]
+# patch_local_shape: [10, 1, 16, 16]
+# patch_global_shape: [10, 1, 60, 60]
+# patch_oci_shape: [1, 2]
+# lr: 0.0001
+# weight_decay: 0.000001
+# loss: 'ce'
+# sea_masked: False
+# pool: 'linear'
+# compile: False    
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters

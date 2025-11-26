@@ -1,0 +1,52 @@
+_target_: src.models.seasfire_vit_global_generic_bin_regression.plUNET
+input_vars: ${input_vars} # this is not needed for this model, it is so that the wandb callback can access the input variables
+input_local_shape: [10, 1, 80, 80]
+input_global_shape: [10, 1, 360, 180]
+input_oci_shape: [10, 10]
+patch_local_shape: [10, 1, 16, 16]
+patch_global_shape: [10, 1, 30, 30]
+patch_oci_shape: [1, 1]
+lr: 0.0001
+weight_decay: 0.000001
+loss: 'ce'
+sea_masked: False
+pool: 'linear'
+compile: False
+dim : 768
+depth : 8
+heads : 8
+mlp_dim : 2048
+num_register_tokens : 4
+pos_emb : 'learnable'
+patch_emb: 'linear'
+positional_vars: ${positional_vars}
+latent_classes: 24
+num_bins: 24
+bin_spacing: 'log'
+
+# input_vars: ${input_vars}
+# positional_vars : ${positional_vars}
+# local_input_shape: ${local_input_shape}
+# lr: 0.0001
+# weight_decay: 0.000001
+# loss: 'ce'
+# encoder: 'efficientnet-b1'
+# use_global_input: True
+# global_patch_size: null
+# sea_masked: False
+# compile: True
+
+# (
+#             input_local_shape: list = None,
+#             input_global_shape: list = None,
+#             input_oci_shape: list = None,
+#             patch_local_shape: list = None,
+#             patch_global_shape: list = None,
+#             patch_oci_shape: list = None,
+#             lr: float = 0.001,
+#             weight_decay: float = 0.0005,
+#             loss='dice',
+#             sea_masked=False,
+#             pool='mean',
+#             compile=True,
+#     )

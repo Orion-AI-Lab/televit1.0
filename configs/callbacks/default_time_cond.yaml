@@ -1,0 +1,36 @@
+defaults:
+  - model_checkpoint
+#  - early_stopping
+#  - model_summary
+  - rich_progress_bar
+  - add_metric_aggs
+  - log_val_predictions_segmentation
+  - learning_rate_monitor
+  - _self_
+
+add_metric_aggs:
+  _target_: src.callbacks.wandb_callbacks.AddMetricAggs
+  metrics: ["val/loss/dataloader_idx_${min_lead_time}", "val/auprc[dl_idx=${min_lead_time}]/${min_lead_time}", "val/f1", "val/auroc"]
+  aggs: ["min", "max", "max", "max"]
+
+log_val_predictions_segmentation:
+  num_samples: 8
+  every_n_epochs: 1
+
+model_checkpoint:
+  dirpath: ${paths.output_dir}/checkpoints
+  filename: "epoch_{epoch:03d}"
+  monitor: "val/loss/dataloader_idx_${min_lead_time}"
+  mode: "min"
+  save_last: True
+  auto_insert_metric_name: False
+  every_n_epochs: 1
+  save_top_k: 1
+#
+#early_stopping:
+#  monitor: "val/acc"
+#  patience: 100
+#  mode: "max"
+#
+#model_summary:
+#  max_depth: -1

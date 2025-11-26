@@ -1,0 +1,21 @@
+_target_: src.data.seasfire_local_global_generic_time_cond.SeasFireLocalGlobalDataModule
+ds_path: ${ds_path}
+ds_path_global: ${ds_path_global}
+input_vars : ${input_vars}
+positional_vars : ${positional_vars}
+oci_vars : ${oci_vars}
+local_lag: 3
+global_lag: 3
+oci_lag : ${oci_lag}
+log_transform_vars : ${log_transform_vars}
+# Target can be one of BAs_GWIS, BurntArea, frpfire, co2fire, FCCI_BA, co2fire
+target : ${target}
+# How many weeks to forecast forward in time
+min_lead_time: ${min_lead_time}
+max_lead_time: ${max_lead_time}
+#random_crop: False
+batch_size: 32
+local_input_shape: [80, 80]
+num_workers: 4
+pin_memory: True
+debug: True
