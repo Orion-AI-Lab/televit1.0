@@ -1,8 +1,12 @@
 # TeleViT1.0: Teleconnection-aware Transformers for Subseasonal to Seasonal Wildfire Pattern Forecasts
 
-This is the repo for Televit1.0, a continuation and more mature version of [TeleViT](htttps://github.com/orion-ai-lab/televit). 
+This is the repo for [Televit1.0](https://arxiv.org/abs/2512.00089), a continuation and more mature version of [TeleViT](htttps://github.com/orion-ai-lab/televit). 
 
-Visualizations of explainability and prediction maps can be found in [this Huggingspace application](https://huggingface.co/spaces/iprapas/televit-xai).
+The model fuses local inputs with coarsened global input and time-series of teleconnection indices to improve S2S forecasting. 
+
+Visualizations of explainability and prediction maps can be found in this [HuggingFace application](https://huggingface.co/spaces/iprapas/televit-xai).
+
+![Model Architecture](static/figure1-architecture.png)
 
 ## Prerequisites
 
@@ -94,4 +98,14 @@ To find all that you have to follow the different experiment configs in [./confi
 
 ## Citation
 
-TODO
+Currently under review, please cite the pre-print below:
+
+```
+@article{prapas2025televit10,
+  title={TeleViT1.0: Teleconnection-aware Vision Transformers for Subseasonal to Seasonal Wildfire Pattern Forecasts},
+  author={Ioannis Prapas and Nikolaos Papadopoulos and Nikolaos-Ioannis Bountos and Dimitrios Michail and Gustau Camps-Valls and Ioannis Papoutsis},
+  journal={arXiv preprint arXiv:2512.00089},
+  year={2025},
+  url={https://arxiv.org/abs/2512.00089}
+}
+```
