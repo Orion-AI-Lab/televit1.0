@@ -1,6 +1,6 @@
 # TeleViT1.0: Teleconnection-aware Transformers for Subseasonal to Seasonal Wildfire Pattern Forecasts
 
-This is the repo for [Televit1.0](https://arxiv.org/abs/2512.00089), a continuation and more mature version of [TeleViT](htttps://github.com/orion-ai-lab/televit). 
+This is the repo for [Televit1.0](https://arxiv.org/abs/2512.00089), a continuation and more mature version of [TeleViT](https://github.com/orion-ai-lab/televit). 
 
 The model fuses local inputs with coarsened global input and time-series of teleconnection indices to improve S2S forecasting. 
 
